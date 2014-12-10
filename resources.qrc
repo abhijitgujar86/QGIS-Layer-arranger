@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/plugins/Layer_arranger" >
+        <file>icon.png</file>
+    </qresource>
+</RCC>

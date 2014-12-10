@@ -1,0 +1,34 @@
+# This file contains metadata for your plugin. Since 
+# version 2.0 of QGIS this is the proper way to supply 
+# information about a plugin. The old method of 
+# embedding metadata in __init__.py will 
+# is no longer supported since version 2.0.
+
+# This file should be included when you package your plugin.# Mandatory items:
+
+[general]
+name=Layer arranger
+qgisMinimumVersion=2.6
+description=This plugin is used to automatically group the loaded layers in point, line polygon group to quickly optimize the visibility of map window.
+version=0.1
+author=Abhijit Gujar
+email=abhijitgujar86@gmail.com
+
+# End of mandatory metadata
+
+# Optional items:
+
+# Uncomment the following line and add your changelog:
+# changelog=
+
+# Tags are comma separated with spaces allowed
+tags=layer
+
+homepage=http://blogs.abhijitgujar.info/?p=6
+tracker=
+repository=
+icon=icon.png
+# experimental flag
+experimental=True
+deprecated=False
+
