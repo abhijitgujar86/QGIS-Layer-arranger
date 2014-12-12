@@ -25,8 +25,8 @@ email=abhijitgujar86@gmail.com
 tags=layer
 
 homepage=http://blogs.abhijitgujar.info/?p=6
-tracker=
-repository=
+tracker=https://github.com/abhijitgujar86/QGIS-Layer-arranger
+repository=https://github.com/abhijitgujar86/QGIS-Layer-arranger
 icon=icon.png
 # experimental flag
 experimental=True
