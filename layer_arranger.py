@@ -185,22 +185,26 @@ class Layer_arranger:
         #if x == "Group Point"
         #    QMessageBox.information( self.iface.mainWindow(),"Stop", "Group already exist .."
 
-        group1 = root.insertGroup(0, "Group Point")
-        group2 = root.insertGroup(1, "Group Line")
-        group3 = root.insertGroup(2, "Group Polygon")
-        #get the list of layers  from registry
-        layers = QgsMapLayerRegistry.instance().mapLayers()
-        #segregate layers into groups 
-        for name, layer in layers.iteritems():
-            # check the layer geometry type 
-            if layer.geometryType() == QGis.Point:
-                group1.addLayer(layer)
-                root.removeLayer(layer)
-        
-            if layer.geometryType() == QGis.Line:
-                group2.addLayer(layer)
-                root.removeLayer(layer)
+        if root.findGroup("Group Point") is None and root.findGroup("Group Line") and root.findGroup("Group Polygon"):
+            group1 = root.insertGroup(0, "Group Point")
+            group2 = root.insertGroup(1, "Group Line")
+            group3 = root.insertGroup(2, "Group Polygon")
+            print 'helloooo 2'
+            #get the list of layers  from registry
+            layers = QgsMapLayerRegistry.instance().mapLayers()
+            #segregate layers into groups
+            for name, layer in layers.iteritems():
+                # check the layer geometry type
+                if layer.geometryType() == QGis.Point:
+                    group1.addLayer(layer)
+                    root.removeLayer(layer)
 
-            if layer.geometryType() == QGis.Polygon:
-                group3.addLayer(layer)
-                root.removeLayer(layer)
+                if layer.geometryType() == QGis.Line:
+                    group2.addLayer(layer)
+                    root.removeLayer(layer)
+
+                if layer.geometryType() == QGis.Polygon:
+                    group3.addLayer(layer)
+                    root.removeLayer(layer)
+        else:
+            QMessageBox.information(self.iface.mainWindow(),"Layer Arranger", " Sorry: You can run the Layer Arranger only once and group Group Point, Group Line, Group Polygon should not be repeated.")
